@@ -1,0 +1,46 @@
+@mixin smooth($opt){
+  transition: $opt;
+  -webkit-transition: $opt;
+  -o-transition: $opt;
+  -moz-transition: $opt;
+}
+body{
+  background:#800080;
+  margin: 0;
+  font-family: Open Sans,sans-serif,serif;
+}
+.header{
+  width: 100vw;
+  padding:20vh 0;
+  background: #fff;
+  text-align: center;
+  font-size: 4em;
+  position: absolute;
+}
+.popup{
+  width:100vw;
+  height: 100vh;
+  background:#fff;
+  text-align: center;
+  position: absolute;
+  line-height: 100vh;
+  h2{
+    margin:0;
+  }
+}
+.game{
+  height: 100vh;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+.text{
+  display: table-cell;
+  vertical-align: middle;
+  color:#fff;
+  font-size: 3em;
+}
+.active{
+  color:green;
+  border-top: 1vh solid green;
+}

@@ -1,2 +1,2 @@
 # reflex-io
-Reflex input output
+Reflex input output game.
