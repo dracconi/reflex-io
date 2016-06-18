@@ -1,6 +1,5 @@
-$.getScript("js/timer.js");
-$.getScript("js/functions.js");
-$.getJSON( "js/words.json").then(start);
+
+$.getJSON( "js/words.json").then(start)
 var typos = 0;
 var item;
 var typedwords = [];
