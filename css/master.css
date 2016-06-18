@@ -27,11 +27,16 @@ body {
   display: table;
   text-align: center; }
 
-.text {
+.group {
   display: table-cell;
   vertical-align: middle;
   color: #fff;
-  font-size: 3em; }
+  font-size: 3em;
+  text-align: center; }
+  .group .text {
+    margin: auto; }
+  .group #time {
+    margin: auto; }
 
 .active {
   color: green;

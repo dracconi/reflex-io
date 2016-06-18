@@ -1,23 +1,30 @@
 var words = ["hyper","hello"];
+var typedwords = [];
+
 var item;
 var correct
 
 $(document).ready(function(){
-  regenerate();
   $(".header").click(function(){
-    $(".header").slideUp()
+    $(".header").slideUp();
+    regenerate();
   })
   $("body").keyup(function(e){
     if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
       $("#"+correct).addClass("active");
       correct ++;
       if(correct == item.length){
+        typedwords.push(item);
         regenerate();
       }
     }
   })
 })
 function regenerate(){
+  stopTimer();
+  saveLastTime();
+  resetTimer();
+  startTimer();
   correct = 0;
   item = words[Math.floor(Math.random()*words.length)];
   text = "";
@@ -26,12 +33,4 @@ function regenerate(){
   }
   $("#text").html("");
   $("#text").html(text);
-}
-function check(word){
-  if(words.indexOf(word) != -1){
-    $("input").addClass("active");
-    $("#ok").css("display","inline");
-    $("#bad").css("display","none");
-    setTimeout(function(){$("input").removeClass("active");$("#ok").css("display","none");$("#bad").css("display","inline");document.getElementById("input").value="";},1500);
-  }
 }

@@ -34,11 +34,18 @@ body{
   display: table;
   text-align: center;
 }
-.text{
+.group{
   display: table-cell;
   vertical-align: middle;
   color:#fff;
   font-size: 3em;
+  text-align: center;
+  .text{
+    margin:auto;
+  }
+  #time{
+    margin: auto;
+  }
 }
 .active{
   color:green;
