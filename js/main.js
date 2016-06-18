@@ -14,12 +14,12 @@ function start(response){
 $(document).ready(function(){
   if(getParameterByName("seed")==undefined){
     window.location.replace(window.location.href + "?seed=" + makeid());
-  }
+  };
   Math.seed = getParameterByName("seed");
   $("#start").click(function(){
     $(".header").slideUp();
     regenerate();
-  })
+  });
 $("body").keyup(function(e){
   if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
     $("#"+correct).addClass("active");
@@ -28,13 +28,13 @@ $("body").keyup(function(e){
       typedwords.push(item);
       $("#times").append(time.toFixed(2)+" ("+item+")<br>")
       regenerate();
-    }
+    };
   }else{
     time += 1;
     typos++;
-  }
-})
-})
+  };
+});
+});
 function regenerate(){
   stopTimer();
   saveLastTime();
@@ -44,8 +44,8 @@ function regenerate(){
   item = words[Math.floor(Math.seededRandom(words.length,0))];
   text = "";
   for(i=0;i<item.length; i++){
-    text += "<span id='"+i+"'>"+item.charAt(i)+"</span>"
-  }
+    text += "<span id='"+i+"'>"+item.charAt(i)+"</span>";
+  };
   $("#text").html("");
   $("#text").html(text);
 }
