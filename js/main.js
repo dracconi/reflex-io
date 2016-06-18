@@ -1,23 +1,38 @@
-var words = ["hyper","hello"];
+$.getJSON( "js/words.json").then(start);
+var typos = 0;
 var item;
-var correct
-
+var typedwords = [];
+var correct;
+var words;
+var words_obj;
+function start(response){
+  words = response["words"];
+  $("#times").html("");
+}
 $(document).ready(function(){
+$(".header").click(function(){
+  $(".header").slideUp();
   regenerate();
-  $(".header").click(function(){
-    $(".header").slideUp()
-  })
-  $("body").keyup(function(e){
-    if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
-      $("#"+correct).addClass("active");
-      correct ++;
-      if(correct == item.length){
-        regenerate();
-      }
+})
+$("body").keyup(function(e){
+  if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
+    $("#"+correct).addClass("active");
+    correct ++;
+    if(correct == item.length){
+      typedwords.push(item);
+      $("#times").append(time.toFixed(2)+" ("+item+")<br>")
+      regenerate();
     }
-  })
+  }else{
+    typos++;
+  }
+})
 })
 function regenerate(){
+  stopTimer();
+  saveLastTime();
+  resetTimer();
+  startTimer();
   correct = 0;
   item = words[Math.floor(Math.random()*words.length)];
   text = "";
@@ -26,12 +41,4 @@ function regenerate(){
   }
   $("#text").html("");
   $("#text").html(text);
-}
-function check(word){
-  if(words.indexOf(word) != -1){
-    $("input").addClass("active");
-    $("#ok").css("display","inline");
-    $("#bad").css("display","none");
-    setTimeout(function(){$("input").removeClass("active");$("#ok").css("display","none");$("#bad").css("display","inline");document.getElementById("input").value="";},1500);
-  }
 }

@@ -1,9 +1,11 @@
 body {
   background: #800080;
   margin: 0;
+  color: #fff;
   font-family: Open Sans,sans-serif,serif; }
 
 .header {
+  color: #000;
   width: 100vw;
   padding: 20vh 0;
   background: #fff;
@@ -24,17 +26,38 @@ body {
 .game {
   height: 100vh;
   width: 100%;
-  display: table;
-  text-align: center; }
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around; }
 
-.text {
-  display: table-cell;
+.typedwords {
+  z-index: -99;
+  flex-grow: 1; }
+
+.leaderboard {
+  z-index: -99;
+  flex-grow: 1; }
+
+.group {
+  flex-grow: 2;
   vertical-align: middle;
   color: #fff;
-  font-size: 3em; }
+  font-size: 3em;
+  text-align: center; }
+  .group .text {
+    margin: auto; }
+  .group #time {
+    margin: auto; }
 
 .active {
   color: green;
   border-top: 1vh solid green; }
+
+.missclick {
+  text-transform: uppercase;
+  font-size: 1em;
+  background: red;
+  border-radius: 20px; }
 
 /*# sourceMappingURL=master.css.map */

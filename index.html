@@ -3,16 +3,30 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-
     <link rel="stylesheet" href="css/master.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>
+    <script src="js/timer.js" charset="utf-8"></script>
     <title>REFLEX.IO</title>
   </head>
   <body>
     <noscript><div class="popup"><h2>You don't have javascript enabled</h2></div></noscript>
       <div class="header"><h1 id="header">REFLEX.io</h1></div>
-      <div class="game"><div id="text" class="text"></div></div>
+      <div class="game">
+        <div class="typedwords">
+          <h3>Typed Words</h3>
+          <h6 id="times"></h6>
+
+        </div>
+        <div class="group">
+          <h2 id="time">time</h2>
+          <div id="text" class="text"></div>
+        </div>
+        <div class="leaderboard">
+          <h3>Leaderboard</h3>
+
+        </div>
+      </div>
   </body>
 </html>
