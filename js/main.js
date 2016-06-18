@@ -1,24 +1,32 @@
-var words = ["hyper","hello"];
-var typedwords = [];
-
+$.getJSON( "js/words.json").then(start);
+var typos = 0;
 var item;
-var correct
-
+var typedwords = [];
+var correct;
+var words;
+var words_obj;
+function start(response){
+  words = response["words"];
+  $("#times").html("");
+}
 $(document).ready(function(){
-  $(".header").click(function(){
-    $(".header").slideUp();
-    regenerate();
-  })
-  $("body").keyup(function(e){
-    if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
-      $("#"+correct).addClass("active");
-      correct ++;
-      if(correct == item.length){
-        typedwords.push(item);
-        regenerate();
-      }
+$(".header").click(function(){
+  $(".header").slideUp();
+  regenerate();
+})
+$("body").keyup(function(e){
+  if (String.fromCharCode(e.which).toLowerCase() == item.charAt(correct).toLowerCase()){
+    $("#"+correct).addClass("active");
+    correct ++;
+    if(correct == item.length){
+      typedwords.push(item);
+      $("#times").append(time.toFixed(2)+" ("+item+")<br>")
+      regenerate();
     }
-  })
+  }else{
+    typos++;
+  }
+})
 })
 function regenerate(){
   stopTimer();
