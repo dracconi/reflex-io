@@ -12,6 +12,10 @@ body {
   text-align: center;
   font-size: 4em;
   position: absolute; }
+  .header h1, .header h2 {
+    margin: 0; }
+  .header h2 {
+    font-size: 1em; }
 
 .popup {
   width: 100vw;
