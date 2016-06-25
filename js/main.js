@@ -1,4 +1,3 @@
-
 $.getJSON( "js/words.json").then(start)
 var typos = 0;
 var item;
@@ -30,10 +29,29 @@ $("body").keyup(function(e){
     };
   }else{
     time += 1;
-    typos++;
+    $("#time").animate({
+      background:"red"
+    },200, function(){
+      $("#time").animate({
+        background:"#fff"
+      },200);
+
+    })
   };
+    typos++;
+    if(typos==10){
+      stopTimer();
+      var timesum;
+      if (times.length !== 1){
+      for(i=1;i<times.length;i++){timesum =+ times[i]}
+      }
+      timesum =+ time;
+      $("#text").html("<span class='end'>Game Over</span>");
+      $("#text").append("<p> Time " + timesum.toFixed(2) + "</p>");
+    }
+  });
 });
-});
+
 function regenerate(){
   stopTimer();
   saveLastTime();
